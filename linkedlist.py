@@ -58,7 +58,6 @@ class LinkedList(object):
     def length(self):
         """Return the length of this linked list by traversing its nodes.
         Best and worst case running time: O(n) for n numbers of items need to add to node_count"""
-        node_count = 0
         node = self.head
         while node is not None:
             node_count += 1
@@ -87,7 +86,42 @@ class LinkedList(object):
         # Check if the given index is out of range and if so raise an error
         if not (0 <= index <= self.size):
             raise ValueError('List index out of range: {}'.format(index))
-        # TODO: Find the node before the given index and insert item after it
+        if index == 0:
+            
+            self.prepend(item)
+
+        elif index == self.size:
+
+            self.append(item)
+
+        elif index <= self.size // 2:
+
+            new_node = Node(item)
+            node = self.head
+
+            for _ in range(index-1):
+                node = node.next
+
+            new_node.previous = node
+            new_node.next = node.next
+
+            node.next.previous = new_node
+            node.next = new_node
+
+            self.size += 1
+
+        elif index > self.size // 2:
+
+            new_node = Node(item)
+            node = self.tail
+            for _ in range((self.size - 1) - (index + 1)):
+                node = node.previous
+
+            new_node.previous = node.previous
+            new_node.next = node
+
+            node.previous.next = new_node
+            node.previous = new_node
 
     def append(self, item):
         """Insert the given item at the tail of this linked list.
@@ -142,9 +176,18 @@ class LinkedList(object):
         using the same node, or raise ValueError if old_item is not found.
         Best case running time: ??? under what conditions? [TODO]
         Worst case running time: ??? under what conditions? [TODO]"""
-        # TODO: Find the node containing the given old_item and replace its
-        # data with new_item, without creating a new node object
-        pass
+        if old_item == self.tail.data:
+            self.tail.data = new_item
+        else:
+            node = self.head
+            while node is not None:
+                if node.data == old_item:
+                    node.data = new_item
+                    break
+                else:
+                    node = node.next
+            if node is None:
+                raise ValueError("Node is None")
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
