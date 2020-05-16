@@ -126,7 +126,7 @@ class BinarySearchTree:
         or None if the given item is not found. Search is performed iteratively
         starting from the root node.
         o(1) If the item is at the root
-        o(lg n) recursively searches through the tree by checking the child nodes."""
+        o(log n) recursively searches through the tree by checking the child nodes."""
         # Start with the root node
         node = self.root
         # Loop until we descend past the closest leaf node

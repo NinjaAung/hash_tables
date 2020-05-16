@@ -1,4 +1,5 @@
 #!python
+from linkedlist import LinkedList
 
 class LinkedQueue(object):
 
@@ -32,7 +33,7 @@ class LinkedQueue(object):
 
     def enqueue(self, item):
         """Insert the given item at the back of this queue.
-        Running time: O(1) – Why? adding to the end is constant time"""
+        Running time: O(1) adding to the end is constant time"""
         # Insert given item
         self.list.append(item)
         self.count += 1
@@ -48,7 +49,7 @@ class LinkedQueue(object):
     def dequeue(self):
         """Remove and return the item at the front of this queue,
         or raise ValueError if this queue is empty.
-        Running time: O(1) – Why? removing from the front of a linked list is constant time """
+        Running time: O(1) removing from the front of a linked list is constant time """
         # Remove and return front item, if any
         if self.is_empty() is True:
             raise ValueError
@@ -89,7 +90,7 @@ class ArrayQueue(object):
 
     def enqueue(self, item):
         """Insert the given item at the back of this queue.
-        Running time: O(1) – Why? appending is constant time"""
+        Running time: O(1) appending is constant time"""
         # Insert given item
         self.list.append(item)
 
@@ -105,7 +106,7 @@ class ArrayQueue(object):
     def dequeue(self):
         """Remove and return the item at the front of this queue,
         or raise ValueError if this queue is empty.
-        Running time: O(n-i) – Why? based off of the index to be popped(0) 
+        Running time: O(n-i) based off of the index to be popped(0) 
         and the number of items"""
         # Remove and return front item, if any
         if self.is_empty():

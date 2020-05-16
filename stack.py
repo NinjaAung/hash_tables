@@ -34,7 +34,7 @@ class LinkedStack(object):
 
     def push(self, item):
         """Insert the given item on the top of this stack.
-        Running time: O(1) – Why? appending to the end is constant time"""
+        Running time: O(1) appending to the end is constant time"""
         # Push given item
         self.list.append(item)
         self.count += 1
@@ -49,7 +49,7 @@ class LinkedStack(object):
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(1) – Why? removing from the end is constant time"""
+        Running time: O(1) removing from the end is constant time"""
         # Remove and return top item, if any
         if self.is_empty():
             raise ValueError
@@ -90,7 +90,7 @@ class ArrayStack(object):
 
     def push(self, item):
         """Insert the given item on the top of this stack.
-        Running time: O(1) – Why? appending to end of list is constant time"""
+        Running time: O(1) appending to end of list is constant time"""
         # Insert given item
         self.list.append(item)
 
